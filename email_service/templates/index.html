@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Uber Mail Service</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/base.css') }}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+        {% block head %}
+        {% endblock %}
+	</head>
+
+    <body>
+        <div id="form-main">
+          <div id="form-div">
+            <div class="alert alert-success" style="visibility:hidden;"></div>
+            <div class="alert alert-error" style="visibility:hidden;"></div>
+            <form class="form" id="form1" method="POST" action="/email/"
+           enctype="multipart/form-data">
+                            
+              <p class="email">
+                <input name="from_email" type="text" class="validate[required,custom[email]] feedback-input"
+                id="from_email" placeholder="Your Email" />
+              </p>
+
+              <p class="email">
+                <input name="to_email" type="text" class="validate[required,custom[email]] feedback-input"
+                id="to_email" placeholder="Recipient's Email" />
+              </p>
+              
+              <p class="subject">
+                <input name="subject" type="text" class="validate[required,length[0,100]] feedback-input"
+                placeholder="Subject" id="subject" />
+              </p>
+
+              <p class="text">
+                <textarea name="email_body" class="validate[required,length[6,300]] feedback-input"
+                id="email_body" placeholder="Email Content"></textarea>
+              </p>
+              
+              <div class="submit">
+                <input type="submit" value="SEND" id="button-blue"/>
+                <div class="ease"></div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+
+    </body>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</html>
