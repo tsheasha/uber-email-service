@@ -33,12 +33,12 @@ def send():
     email_message = EmailMessage()
     
     if form_data['to_email']:
-        email_message.sender = form_data['to_email']
+        email_message.recipient = form_data['to_email']
     else:
         return json.dumps({"error": "Please include the recipient's email"})
 
     if form_data['from_email']:
-        email_message.recipient = form_data['from_email']
+        email_message.sender = form_data['from_email']
     else:
         return json.dumps({"error": "Please include the sender's email"})
 
